@@ -49,10 +49,12 @@ export default function Page() {
               <span className="ml-2 text-sm text-slate-500">{p.per}</span>
             </div>
             <ul className="mt-4 space-y-2 text-slate-700 list-disc pl-5">
-              {p.features.map((f) => <li key={f}>{f}</li>)}
+              {p.features.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
             </ul>
             <Link
-              href="/book"
+              href="/contact"
               className="mt-5 inline-flex btn btn-primary w-full justify-center"
             >
               {p.cta}
