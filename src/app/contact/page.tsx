@@ -1,4 +1,5 @@
 import EmailButton from "@/app/components/emailbutton";
+import ContactForm from "./ContactForm";
 
 export const metadata = {
   title: "Contact | Matthew's Grinds",
@@ -55,14 +56,14 @@ export default function ContactPage() {
                 Email
               </h2>
               <p className="mt-2 text-sm" style={{ color: "var(--ink-muted)" }}>
-                For bookings, questions, or detailed enquiries.
+                Opens Gmail with my address and subject pre-filled.
               </p>
             </div>
             <EmailButton
               email="matthewsgrinds@gmail.com"
               subject="Grinds Enquiry"
-              body={"Hi Matthew,%0A%0AI'd like to enquire about grinds.%0A%0AThanks!"}
-              className="btn btn-primary text-sm"
+              body="Hi Matthew,%0A%0AI'd like to enquire about grinds.%0A%0AThanks!"
+              className="btn btn-primary text-sm text-center"
             >
               Email Me
             </EmailButton>
@@ -100,133 +101,20 @@ export default function ContactPage() {
             <p className="text-center text-sm mb-10" style={{ color: "var(--ink-muted)" }}>
               Fill in the form and I&apos;ll get back to you within 24 hours.
             </p>
-
-            <form
-              action="https://formsubmit.co/matthewsgrinds@gmail.com"
-              method="POST"
-              className="card flex flex-col gap-5"
-            >
-              {/* FormSubmit config */}
-              <input type="hidden" name="_subject" value="New enquiry — Matthew's Grinds" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="text" name="_honey" style={{ display: "none" }} />
-
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div className="flex flex-col gap-1.5">
-                  <label
-                    htmlFor="name"
-                    className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: "var(--ink-muted)" }}
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="e.g. Sarah Murphy"
-                    className="rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
-                    style={{
-                      border: "1.5px solid rgba(26,26,26,0.15)",
-                      backgroundColor: "var(--cream)",
-                      color: "var(--ink)",
-                    }}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label
-                    htmlFor="email"
-                    className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: "var(--ink-muted)" }}
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="you@example.com"
-                    className="rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
-                    style={{
-                      border: "1.5px solid rgba(26,26,26,0.15)",
-                      backgroundColor: "var(--cream)",
-                      color: "var(--ink)",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="level"
-                  className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: "var(--ink-muted)" }}
-                >
-                  Programme
-                </label>
-                <select
-                  id="level"
-                  name="level"
-                  className="rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
-                  style={{
-                    border: "1.5px solid rgba(26,26,26,0.15)",
-                    backgroundColor: "var(--cream)",
-                    color: "var(--ink)",
-                  }}
-                >
-                  <option value="">Select a level…</option>
-                  <option value="Leaving Certificate">Leaving Certificate</option>
-                  <option value="Junior Cycle">Junior Cycle</option>
-                  <option value="Primary">Primary</option>
-                  <option value="Not sure">Not sure yet</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="message"
-                  className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: "var(--ink-muted)" }}
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Tell me a bit about what you need — subject, upcoming exam, availability, etc."
-                  className="rounded-xl px-4 py-2.5 text-sm outline-none transition-all resize-none"
-                  style={{
-                    border: "1.5px solid rgba(26,26,26,0.15)",
-                    backgroundColor: "var(--cream)",
-                    color: "var(--ink)",
-                  }}
-                />
-              </div>
-
-              <button type="submit" className="btn btn-primary self-start px-8 py-3">
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
       <section className="container py-14">
-        <div
-          className="card flex flex-col md:flex-row md:items-center md:justify-between gap-6"
-        >
+        <div className="card flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
               Ready to start?
             </h3>
             <p className="mt-1 text-sm" style={{ color: "var(--ink-muted)" }}>
-              Reach out now to secure your spot — sessions fill quickly around exam season.
+              Reach out now to secure your spot. Sessions fill quickly around exam season.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -241,7 +129,7 @@ export default function ContactPage() {
             <EmailButton
               email="matthewsgrinds@gmail.com"
               subject="Grinds Enquiry"
-              body={"Hi Matthew,%0A%0AI'd like to enquire about grinds.%0A%0AThanks!"}
+              body="Hi Matthew,%0A%0AI'd like to enquire about grinds.%0A%0AThanks!"
               className="btn btn-outline text-sm px-5 py-2.5"
             >
               Email
