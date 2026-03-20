@@ -1,11 +1,20 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
+import nodemailer from "nodemailer";
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_KEY!
 );
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
 export type ContactState = {
   success: boolean;
@@ -26,6 +35,7 @@ export async function sendContactEmail(
   }
 
   try {
+    // Save to Supabase
     const { error } = await supabase
       .from("contact_submissions")
       .insert({ name, email, level, message });
@@ -33,6 +43,15 @@ export async function sendContactEmail(
     if (error) {
       return { success: false, error: `DB: ${error.message} [${error.code}]` };
     }
+
+    // Send email notification
+    await transporter.sendMail({
+      from: `"Matthew's Grinds" <${process.env.GMAIL_USER}>`,
+      to: "matthewpoleary@gmail.com",
+      replyTo: email,
+      subject: `New enquiry from ${name}${level ? ` — ${level}` : ""}`,
+      text: `Name: ${name}\nEmail: ${email}\nLevel: ${level || "Not specified"}\n\nMessage:\n${message}`,
+    });
 
     return { success: true };
   } catch (err: unknown) {
