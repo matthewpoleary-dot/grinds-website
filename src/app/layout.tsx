@@ -97,14 +97,8 @@ function Nav() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="block rounded-xl px-3 py-2.5 transition-colors"
+                    className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-[#ece7de]"
                     style={{ color: "var(--ink)" }}
-                    onMouseOver={(e) =>
-                      ((e.currentTarget as HTMLElement).style.backgroundColor = "var(--cream-alt)")
-                    }
-                    onMouseOut={(e) =>
-                      ((e.currentTarget as HTMLElement).style.backgroundColor = "transparent")
-                    }
                   >
                     {l.label}
                   </Link>
