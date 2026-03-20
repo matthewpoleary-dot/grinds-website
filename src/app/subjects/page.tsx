@@ -81,28 +81,20 @@ export default function SubjectsPage() {
         </div>
       </section>
 
-      {/* ── FREE AI TOOL BANNER ── */}
+      {/* ── STUDYWITH BENEFIT ── */}
       <section style={{ backgroundColor: "var(--cream-alt)" }}>
         <div className="container py-14">
-          <div className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <div>
-              <p className="label-section mb-2">Included free for all students</p>
-              <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
-                Access to StudyWith — my free AI study tool
-              </h3>
-              <p className="mt-2 text-sm max-w-lg" style={{ color: "var(--ink-muted)" }}>
-                Every student I work with gets free access to StudyWith, an AI tutor I built myself.
-                It asks you questions instead of giving answers — so you actually understand the material.
-              </p>
-            </div>
-            <a
-              href="https://studywith-phi.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline shrink-0 text-sm"
-            >
-              Try StudyWith →
-            </a>
+          <div className="card">
+            <p className="label-section mb-2">Included with every session</p>
+            <h3 className="font-display text-xl font-bold mb-2" style={{ color: "var(--ink)" }}>
+              Access to StudyWith — my AI study tool
+            </h3>
+            <p className="text-sm max-w-2xl" style={{ color: "var(--ink-muted)" }}>
+              Every student I work with gets access to StudyWith, an AI tutor I built myself.
+              It guides you through problems by asking questions rather than giving answers — so you
+              genuinely understand the material rather than just copy a solution. Designed to work
+              between sessions so progress doesn&apos;t stop when the session does.
+            </p>
           </div>
         </div>
       </section>

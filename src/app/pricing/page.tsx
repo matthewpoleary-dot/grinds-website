@@ -100,26 +100,17 @@ export default function Page() {
 
         {/* StudyWith note */}
         <div
-          className="mt-8 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+          className="mt-8 rounded-2xl p-5"
           style={{ backgroundColor: "var(--amber-lite)" }}
         >
-          <div className="flex-1">
-            <p className="font-semibold text-sm" style={{ color: "var(--ink)" }}>
-              Every plan includes free access to StudyWith
-            </p>
-            <p className="text-sm mt-0.5" style={{ color: "var(--ink-muted)" }}>
-              StudyWith is an AI study tool I built myself. It guides students through problems using
-              questions rather than answers, so you understand the material, not just memorise it.
-            </p>
-          </div>
-          <a
-            href="https://studywith-phi.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-outline shrink-0 text-sm"
-          >
-            Try it free →
-          </a>
+          <p className="font-semibold text-sm mb-1" style={{ color: "var(--ink)" }}>
+            Every plan includes access to StudyWith
+          </p>
+          <p className="text-sm" style={{ color: "var(--ink-muted)" }}>
+            StudyWith is an AI study tool I built myself. Instead of giving answers, it asks
+            questions to guide your thinking — so you genuinely understand the material, not just
+            memorise it. Students get access when they book sessions with me.
+          </p>
         </div>
       </section>
 

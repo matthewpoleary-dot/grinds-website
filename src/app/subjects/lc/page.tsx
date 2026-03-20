@@ -187,27 +187,19 @@ export default function LeavingCertPage() {
         </div>
       </section>
 
-      {/* ── FREE AI BANNER ── */}
+      {/* ── STUDYWITH BENEFIT ── */}
       <section style={{ backgroundColor: "var(--cream-alt)" }}>
         <div className="container py-12">
-          <div className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-            <div>
-              <p className="label-section mb-2">Included free</p>
-              <h3 className="font-display text-lg font-bold" style={{ color: "var(--ink)" }}>
-                StudyWith — AI study tool, free for all my students
-              </h3>
-              <p className="mt-1 text-sm" style={{ color: "var(--ink-muted)" }}>
-                I built an AI tutor that guides you through problems using questions — so you genuinely understand the material between sessions.
-              </p>
-            </div>
-            <a
-              href="https://studywith-phi.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline shrink-0 text-sm"
-            >
-              Try StudyWith →
-            </a>
+          <div className="card">
+            <p className="label-section mb-2">Included with every session</p>
+            <h3 className="font-display text-lg font-bold mb-2" style={{ color: "var(--ink)" }}>
+              Access to StudyWith — my AI study tool
+            </h3>
+            <p className="text-sm" style={{ color: "var(--ink-muted)" }}>
+              Every student I work with gets access to StudyWith, an AI tutor I built myself.
+              It guides you through problems by asking questions rather than giving answers — so
+              you genuinely understand the material between sessions, not just copy a solution.
+            </p>
           </div>
         </div>
       </section>

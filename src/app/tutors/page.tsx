@@ -64,15 +64,9 @@ export default function AboutPage() {
               It&apos;s particularly useful between sessions — you can paste in any problem and work
               through it step by step, building real understanding rather than copying answers.
             </p>
-            <a
-              href="https://studywith-phi.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
-              style={{ backgroundColor: "var(--amber)", color: "var(--ink)", fontWeight: 600 }}
-            >
-              Try StudyWith free →
-            </a>
+            <Link href="/contact" className="btn" style={{ backgroundColor: "var(--amber)", color: "var(--ink)", fontWeight: 600 }}>
+              Book to get access →
+            </Link>
           </div>
         </div>
       </section>
