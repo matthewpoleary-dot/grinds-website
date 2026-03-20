@@ -1,12 +1,67 @@
 /* Tailwind v4 entry */
 @import "tailwindcss";
 
-/* Light theme + helpers */
+/* ── Design tokens ── */
+:root {
+  --cream:      #f5f0e8;
+  --cream-alt:  #ece7de;
+  --ink:        #1a1a1a;
+  --ink-muted:  #6b6560;
+  --amber:      #c87026;
+  --amber-lite: #f5e8d8;
+}
+
 html, body { height: 100%; }
-body { @apply bg-gray-50 text-gray-900 antialiased; }
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  @apply antialiased;
+  font-family: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
+}
+
 a { @apply transition-colors; }
+
 .container { @apply mx-auto max-w-6xl px-4 sm:px-6; }
-.card { @apply rounded-2xl border bg-white shadow-sm p-6; }
-.btn { @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium; }
-.btn-primary { @apply bg-blue-600 text-white hover:bg-blue-700; }
-.btn-outline { @apply border border-blue-600 text-blue-600 hover:bg-blue-50; }
+
+/* Cards */
+.card {
+  @apply rounded-2xl bg-white p-6;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  box-shadow: 0 1px 4px rgba(26, 26, 26, 0.06);
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-medium transition-all;
+}
+.btn-primary {
+  background-color: var(--ink);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #333;
+}
+.btn-outline {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+.btn-outline:hover {
+  background-color: var(--ink);
+  color: #fff;
+}
+
+/* Display font utility */
+.font-display {
+  font-family: var(--font-playfair, Georgia, serif);
+}
+
+/* Section label (e.g. "PROGRAMMES", "ABOUT ME") */
+.label-section {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+}

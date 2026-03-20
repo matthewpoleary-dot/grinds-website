@@ -1,11 +1,10 @@
-// app/page.tsx (Home)
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* HERO */}
-      <div className="relative">
+    <div className="flex flex-col">
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -13,130 +12,200 @@ export default function Home() {
               "url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&q=80&w=1920&fit=crop')",
           }}
         >
-          <div className="absolute inset-0 bg-slate-900/70" />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(26,18,8,0.72)" }} />
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-6 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-4xl">
-            One-to-One Grinds That Get Results
+        <div className="relative z-10 container flex flex-col items-start justify-center min-h-[80vh] py-20">
+          <p className="label-section mb-5" style={{ color: "var(--amber)" }}>
+            Dublin &amp; Online · One-to-One Tuition
+          </p>
+          <h1
+            className="font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-tight max-w-3xl text-white"
+          >
+            Grinds that actually{" "}
+            <em className="not-italic" style={{ color: "var(--amber)" }}>
+              get results
+            </em>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg sm:text-xl text-slate-200">
-            Personal one-to-one tuition for <strong>Leaving Certificate</strong>,{" "}
-            <strong>Junior Cycle</strong> and <strong>Primary</strong> students.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.78)" }}>
+            Personal one-to-one tuition for{" "}
+            <strong className="text-white">Leaving Certificate</strong>,{" "}
+            <strong className="text-white">Junior Cycle</strong> and{" "}
+            <strong className="text-white">Primary</strong> students — clear explanations, structured
+            practice, exam confidence.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/subjects"
-              className="rounded-xl bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-lg hover:bg-blue-700 transition"
-            >
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link href="/subjects" className="btn btn-primary">
               View Subjects
             </Link>
             <Link
               href="/pricing"
-              className="rounded-xl bg-white/90 px-6 py-3 text-base font-medium text-blue-700 shadow-lg hover:bg-white transition"
+              className="btn btn-outline"
+              style={{ borderColor: "rgba(255,255,255,0.5)", color: "white" }}
             >
-              Pricing
+              See Pricing
             </Link>
           </div>
-
-          <p className="mt-6 text-base text-slate-200">Online or in person across Dublin.</p>
         </div>
-      </div>
+      </section>
 
-      {/* PROGRAMMES */}
-      <section className="container mx-auto max-w-6xl px-6 py-14">
-        <div className="mb-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Programmes</h2>
-          <p className="mt-2 text-slate-600">
+      {/* ── PROGRAMMES ── */}
+      <section className="container mx-auto py-20">
+        <div className="mb-12 text-center">
+          <p className="label-section mb-3">What I offer</p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold" style={{ color: "var(--ink)" }}>
+            Programmes
+          </h2>
+          <p className="mt-3 max-w-xl mx-auto text-base" style={{ color: "var(--ink-muted)" }}>
             Targeted support tailored to each stage, with clear plans and measurable progress.
           </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
           {/* Leaving Certificate */}
-          <div className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-blue-700">Leaving Certificate</h3>
-              <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs text-blue-700 border border-blue-200">HL & OL</span>
+          <div className="card flex flex-col">
+            <div className="flex items-start justify-between gap-2 mb-4">
+              <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Leaving Certificate
+              </h3>
+              <span
+                className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                style={{ backgroundColor: "var(--amber-lite)", color: "var(--amber)" }}
+              >
+                HL &amp; OL
+              </span>
             </div>
-            <p className="mt-3 text-slate-700 text-sm">
+            <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
               French, Spanish, Biology, Mathematics, and History taught in line with SEC marking schemes.
             </p>
-            <ul className="mt-4 space-y-2 text-slate-700 text-sm list-disc pl-5">
-              <li><span className="font-medium">Exam Strategy:</span> Timing Plans, Structured Answers, and Key Terms.</li>
-              <li><span className="font-medium">Weekly Past Papers:</span> Practice With Targeted Feedback.</li>
-              <li><span className="font-medium">Languages:</span> Oral and Aural Preparation, High-Yield Grammar, and Writing Frames.</li>
+            <ul className="space-y-2.5 text-sm flex-1" style={{ color: "var(--ink)" }}>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Exam Strategy:</strong> Timing Plans, Structured Answers, Key Terms</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Weekly Past Papers:</strong> Practice with targeted feedback</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Languages:</strong> Oral &amp; aural prep, high-yield grammar</span>
+              </li>
             </ul>
-            <div className="mt-5 flex gap-3">
-              <Link href="/subjects/lc" className="btn btn-outline">Learn More</Link>
-              <Link href="/contact" className="btn btn-primary">Book Now</Link>
+            <div className="mt-6 flex gap-3">
+              <Link href="/subjects/lc" className="btn btn-outline text-sm px-4 py-2">
+                Learn More
+              </Link>
+              <Link href="/contact" className="btn btn-primary text-sm px-4 py-2">
+                Book Now
+              </Link>
             </div>
           </div>
 
           {/* Junior Cycle */}
-          <div className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-blue-700">Junior Cycle</h3>
-              <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs text-blue-700 border border-blue-200">
-                Mathematics • Science • French • Spanish
+          <div className="card flex flex-col">
+            <div className="flex items-start justify-between gap-2 mb-4">
+              <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Junior Cycle
+              </h3>
+              <span
+                className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                style={{ backgroundColor: "var(--amber-lite)", color: "var(--amber)" }}
+              >
+                Maths · Science · Languages
               </span>
             </div>
-            <p className="mt-3 text-slate-700 text-sm">
+            <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
               Build strong fundamentals and exam technique for CBAs and final exams.
             </p>
-            <ul className="mt-4 space-y-2 text-slate-700 text-sm list-disc pl-5">
-              <li><span className="font-medium">Core Skills:</span> Methods for Common Problem Types and Clear Presentation.</li>
-              <li><span className="font-medium">CBA Support:</span> Guidance, Reflection Prompts, and Exemplars.</li>
-              <li><span className="font-medium">Languages:</span> Practical Speaking Frames and Listening Strategies.</li>
-              <li><span className="font-medium">Study Habits:</span> Notes, Checklists, and Regular Short Practice.</li>
+            <ul className="space-y-2.5 text-sm flex-1" style={{ color: "var(--ink)" }}>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Core Skills:</strong> Methods for common problem types</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>CBA Support:</strong> Guidance, reflection prompts &amp; exemplars</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Languages:</strong> Practical speaking frames &amp; listening strategies</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Study Habits:</strong> Notes, checklists, and regular short practice</span>
+              </li>
             </ul>
-            <div className="mt-5 flex gap-3">
-              <Link href="/subjects/jc" className="btn btn-outline">Learn More</Link>
-              <Link href="/contact" className="btn btn-primary">Book Now</Link>
+            <div className="mt-6 flex gap-3">
+              <Link href="/subjects/jc" className="btn btn-outline text-sm px-4 py-2">
+                Learn More
+              </Link>
+              <Link href="/contact" className="btn btn-primary text-sm px-4 py-2">
+                Book Now
+              </Link>
             </div>
           </div>
 
           {/* Primary */}
-          <div className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-blue-700">Primary</h3>
-              <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs text-blue-700 border border-blue-200">
-                Literacy • Numeracy
+          <div className="card flex flex-col">
+            <div className="flex items-start justify-between gap-2 mb-4">
+              <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Primary
+              </h3>
+              <span
+                className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                style={{ backgroundColor: "var(--amber-lite)", color: "var(--amber)" }}
+              >
+                Literacy · Numeracy
               </span>
             </div>
-            <p className="mt-3 text-slate-700 text-sm">
+            <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
               Gentle, confidence-building sessions that strengthen core skills and homework routines.
             </p>
-            <ul className="mt-4 space-y-2 text-slate-700 text-sm list-disc pl-5">
-              <li><span className="font-medium">Literacy:</span> Phonics, Reading Fluency, Comprehension, and Writing.</li>
-              <li><span className="font-medium">Numeracy:</span> Number Sense, Operations, and Problem-Solving Strategies.</li>
-              <li><span className="font-medium">Parent Updates:</span> Brief Notes After Sessions and Clear Next Steps.</li>
-              <li><span className="font-medium">Routine:</span> Light Practice Tasks That Are Consistently Completed.</li>
+            <ul className="space-y-2.5 text-sm flex-1" style={{ color: "var(--ink)" }}>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Literacy:</strong> Phonics, reading fluency, comprehension &amp; writing</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Numeracy:</strong> Number sense, operations &amp; problem-solving</span>
+              </li>
+              <li className="flex gap-2">
+                <span style={{ color: "var(--amber)" }}>→</span>
+                <span><strong>Parent Updates:</strong> Brief notes after sessions &amp; clear next steps</span>
+              </li>
             </ul>
-            <div className="mt-5 flex gap-3">
-              <Link href="/subjects/primary" className="btn btn-outline">Learn More</Link>
-              <Link href="/contact" className="btn btn-primary">Book Now</Link>
+            <div className="mt-6 flex gap-3">
+              <Link href="/subjects/primary" className="btn btn-outline text-sm px-4 py-2">
+                Learn More
+              </Link>
+              <Link href="/contact" className="btn btn-primary text-sm px-4 py-2">
+                Book Now
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA BANNER */}
-      <section className="relative z-10 mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-2xl bg-blue-600 text-white p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <div>
-            <h3 className="text-xl font-bold">Not Sure Where to Start?</h3>
-            <p className="mt-2 text-slate-100">
-              Book a 15-minute consultation to map out your goals and select the best plan.
-            </p>
+      {/* ── CTA BANNER ── */}
+      <section style={{ backgroundColor: "var(--cream-alt)" }}>
+        <div className="container py-16">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+            <div className="max-w-xl">
+              <p className="label-section mb-3">Free consultation</p>
+              <h3 className="font-display text-2xl sm:text-3xl font-bold" style={{ color: "var(--ink)" }}>
+                Not sure where to start?
+              </h3>
+              <p className="mt-3 text-base" style={{ color: "var(--ink-muted)" }}>
+                Book a 15-minute consultation to map out your goals and select the best plan.
+              </p>
+            </div>
+            <Link href="/contact" className="btn btn-primary shrink-0 text-sm px-7 py-3">
+              Book Now
+            </Link>
           </div>
-          <Link
-            href="/contact"
-            className="rounded-xl bg-white px-6 py-3 text-blue-700 font-medium shadow hover:bg-slate-100 transition"
-          >
-            Book Now
-          </Link>
         </div>
       </section>
     </div>
