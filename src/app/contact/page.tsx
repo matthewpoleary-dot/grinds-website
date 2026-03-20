@@ -76,7 +76,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <EmailButton
-                email="matthewsgrinds@gmail.com"
+                email="matthewpoleary@gmail.com"
                 subject="Grinds Enquiry"
                 body="Hi Matthew,%0A%0AI'd like to enquire about grinds.%0A%0AThanks!"
                 className="btn btn-primary text-sm text-center"

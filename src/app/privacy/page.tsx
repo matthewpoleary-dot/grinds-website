@@ -53,10 +53,10 @@ export const metadata = {
           <p className="mt-2 text-slate-700">
             If you have any questions about this policy, contact us at{" "}
             <a
-              href="mailto:matthewsgrinds@gmail.com"
+              href="mailto:matthewpoleary@gmail.com"
               className="text-blue-600 hover:underline"
             >
-              matthewsgrinds@gmail.com
+              matthewpoleary@gmail.com
             </a>
             .
           </p>

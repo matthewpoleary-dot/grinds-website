@@ -25,14 +25,18 @@ export async function sendContactEmail(
     return { success: false, error: "Please fill in all required fields." };
   }
 
-  const { error } = await supabase
-    .from("contact_submissions")
-    .insert({ name, email, level, message });
+  try {
+    const { error } = await supabase
+      .from("contact_submissions")
+      .insert({ name, email, level, message });
 
-  if (error) {
-    console.error("Supabase error:", error);
-    return { success: false, error: "Failed to send. Please try WhatsApp or email directly." };
+    if (error) {
+      return { success: false, error: `DB: ${error.message} [${error.code}]` };
+    }
+
+    return { success: true };
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return { success: false, error: `Exception: ${msg}` };
   }
-
-  return { success: true };
 }
