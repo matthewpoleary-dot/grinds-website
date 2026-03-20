@@ -34,7 +34,7 @@ export default function ContactPage() {
                 WhatsApp
               </h2>
               <p className="mt-2 text-sm" style={{ color: "var(--ink-muted)" }}>
-                Send a message any time — I reply fast.
+                Send a message any time. I reply fast.
               </p>
             </div>
             <a

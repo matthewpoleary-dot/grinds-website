@@ -58,92 +58,156 @@ export default function LeavingCertPage() {
   const pills: SubjectKey[] = ["French", "Spanish", "Biology", "Maths", "History"];
 
   return (
-    <div className="grid gap-10">
-      {/* Hero */}
-      <section className="rounded-2xl border bg-gradient-to-b from-blue-50 to-white p-8">
-        <div className="flex items-start justify-between gap-6 flex-wrap">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-              Leaving Certificate <span className="text-slate-500 text-2xl">(HL & OL)</span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-slate-700">
-              Focused preparation aligned to SEC marking schemes — timing, structure, and efficient revision.
-            </p>
+    <div>
+      {/* ── HERO ── */}
+      <section style={{ borderBottom: "1px solid rgba(26,26,26,0.08)" }}>
+        <div className="container py-16 md:py-20">
+          <p className="label-section mb-4">Level</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold" style={{ color: "var(--ink)" }}>
+            Leaving Certificate{" "}
+            <span className="text-2xl font-normal" style={{ color: "var(--ink-muted)" }}>
+              HL &amp; OL
+            </span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg" style={{ color: "var(--ink-muted)" }}>
+            Focused preparation aligned to SEC marking schemes — timing, structure, and efficient revision.
+          </p>
 
-            {/* Subject pills */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {pills.map((p) => {
-                const selected = p === active;
-                return (
-                  <button
-                    key={p}
-                    onClick={() => setActive(p)}
-                    className={[
-                      "rounded-full border px-3 py-1 text-sm shadow-sm transition",
-                      selected
-                        ? "bg-blue-600 text-white border-blue-600"
-                        : "bg-white text-slate-700 hover:border-blue-400",
-                    ].join(" ")}
-                    aria-pressed={selected}
-                  >
-                    {p}
-                  </button>
-                );
-              })}
-            </div>
+          {/* Subject pills */}
+          <div className="mt-6 flex flex-wrap gap-2">
+            {pills.map((p) => (
+              <button
+                key={p}
+                onClick={() => setActive(p)}
+                className="rounded-full px-4 py-1.5 text-sm font-medium transition-all"
+                style={
+                  p === active
+                    ? { backgroundColor: "var(--ink)", color: "white" }
+                    : { border: "1.5px solid rgba(26,26,26,0.2)", color: "var(--ink-muted)", backgroundColor: "transparent" }
+                }
+                aria-pressed={p === active}
+              >
+                {p}
+              </button>
+            ))}
           </div>
-
-          <Link href="/book" className="btn btn-primary">Book a consult</Link>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="grid gap-6 lg:grid-cols-3">
-        {/* Left: What we cover (changes by subject) */}
-        <div className="lg:col-span-2 rounded-2xl border bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">What we cover — {active}</h2>
+      {/* ── CONTENT ── */}
+      <section className="container py-14">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Subject detail + strategy */}
+          <div className="lg:col-span-2 card">
+            <h2 className="font-display text-xl font-bold mb-5" style={{ color: "var(--ink)" }}>
+              What we cover — {active}
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div
+                className="rounded-xl p-5"
+                style={{ backgroundColor: "var(--cream-alt)" }}
+              >
+                <h3 className="font-semibold text-sm mb-3" style={{ color: "var(--ink)" }}>{active}</h3>
+                <ul className="space-y-2 text-sm" style={{ color: "var(--ink-muted)" }}>
+                  {SUBJECTS[active].bullets.map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <span style={{ color: "var(--amber)" }}>→</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {/* Active subject detail */}
-            <div className="rounded-xl border bg-slate-50 p-5">
-              <h3 className="font-medium text-slate-900">{active}</h3>
-              <ul className="mt-3 space-y-2 text-slate-700 list-disc pl-5">
-                {SUBJECTS[active].bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Constant strategy card */}
-            <div className="rounded-xl border bg-slate-50 p-5">
-              <h3 className="font-medium text-slate-900">Skills & strategy</h3>
-              <ul className="mt-3 space-y-2 text-slate-700 list-disc pl-5">
-                <li>Marking-scheme language + structured answers</li>
-                <li>Timing plans per paper and section</li>
-                <li>Active recall & spaced repetition checklists</li>
-                <li>Past papers weekly with precise feedback</li>
-              </ul>
+              <div
+                className="rounded-xl p-5"
+                style={{ backgroundColor: "var(--cream-alt)" }}
+              >
+                <h3 className="font-semibold text-sm mb-3" style={{ color: "var(--ink)" }}>Skills &amp; strategy</h3>
+                <ul className="space-y-2 text-sm" style={{ color: "var(--ink-muted)" }}>
+                  {[
+                    "Marking-scheme language + structured answers",
+                    "Timing plans per paper and section",
+                    "Active recall & spaced repetition checklists",
+                    "Past papers weekly with precise feedback",
+                  ].map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <span style={{ color: "var(--amber)" }}>→</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right: Plan */}
-        <div className="rounded-2xl border bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">How the plan works</h2>
-          <ol className="mt-4 space-y-3 text-slate-700">
-            <li><span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs">1</span> Diagnostic chat → goals & weak topics</li>
-            <li><span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs">2</span> Weekly plan with topic targets</li>
-            <li><span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs">3</span> Practice + feedback mapped to marking scheme</li>
-            <li><span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs">4</span> Exam-timed drills and confidence building</li>
-          </ol>
+          {/* Plan sidebar */}
+          <div className="card flex flex-col gap-5">
+            <h2 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+              How the plan works
+            </h2>
+            <ol className="space-y-3 text-sm" style={{ color: "var(--ink-muted)" }}>
+              {[
+                "Diagnostic chat → goals & weak topics",
+                "Weekly plan with topic targets",
+                "Practice + feedback mapped to marking scheme",
+                "Exam-timed drills and confidence building",
+              ].map((step, i) => (
+                <li key={step} className="flex gap-3 items-start">
+                  <span
+                    className="shrink-0 inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold text-white"
+                    style={{ backgroundColor: "var(--amber)" }}
+                  >
+                    {i + 1}
+                  </span>
+                  {step}
+                </li>
+              ))}
+            </ol>
 
-          <div className="mt-6 rounded-xl border bg-blue-50 p-4">
-            <p className="text-sm text-slate-700">
-              <span className="font-medium text-blue-800">Tip:</span> Most LC students do a 5-pack to lock in a rhythm before mocks.
-            </p>
-            <Link href="/pricing" className="mt-3 inline-flex text-sm text-blue-700 hover:underline">
-              See recommended packs →
+            <div
+              className="rounded-xl p-4 text-sm"
+              style={{ backgroundColor: "var(--amber-lite)" }}
+            >
+              <p style={{ color: "var(--ink)" }}>
+                <strong>Tip:</strong> Most LC students do a 5-pack to lock in a rhythm before mocks.
+              </p>
+              <Link
+                href="/pricing"
+                className="mt-2 inline-flex font-medium text-sm"
+                style={{ color: "var(--amber)" }}
+              >
+                See recommended packs →
+              </Link>
+            </div>
+
+            <Link href="/contact" className="btn btn-primary text-sm">
+              Book a session
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FREE AI BANNER ── */}
+      <section style={{ backgroundColor: "var(--cream-alt)" }}>
+        <div className="container py-12">
+          <div className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <div>
+              <p className="label-section mb-2">Included free</p>
+              <h3 className="font-display text-lg font-bold" style={{ color: "var(--ink)" }}>
+                StudyWith — AI study tool, free for all my students
+              </h3>
+              <p className="mt-1 text-sm" style={{ color: "var(--ink-muted)" }}>
+                I built an AI tutor that guides you through problems using questions — so you genuinely understand the material between sessions.
+              </p>
+            </div>
+            <a
+              href="https://studywith-phi.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline shrink-0 text-sm"
+            >
+              Try StudyWith →
+            </a>
           </div>
         </div>
       </section>

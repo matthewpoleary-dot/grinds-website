@@ -1,95 +1,111 @@
-// app/subjects/page.tsx  (your SubjectsPage)
 import Link from "next/link";
+
+export const metadata = {
+  title: "Subjects | Matthew's Grinds",
+  description: "One-to-one grinds for Leaving Certificate and Junior Cycle — French, Spanish, Biology, Maths, History, Science.",
+};
 
 export default function SubjectsPage() {
   return (
-    <div className="relative min-h-screen">
-      {/* Full-bleed background + overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920&fit=crop')",
-        }}
-      />
-      <div className="absolute inset-0 bg-slate-900/65" />
+    <div>
+      {/* ── HERO ── */}
+      <section style={{ borderBottom: "1px solid rgba(26,26,26,0.08)" }}>
+        <div className="container py-16 md:py-20">
+          <p className="label-section mb-4">What I teach</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold" style={{ color: "var(--ink)" }}>
+            Choose a Level
+          </h1>
+          <p className="mt-4 max-w-xl text-lg" style={{ color: "var(--ink-muted)" }}>
+            Select <strong style={{ color: "var(--ink)" }}>Leaving Certificate</strong> or{" "}
+            <strong style={{ color: "var(--ink)" }}>Junior Cycle</strong> to see subjects and next steps.
+          </p>
+        </div>
+      </section>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 text-center text-white">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-          Choose a Level
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-200">
-          Select <span className="font-semibold">Leaving Certificate</span>,{" "}
-          <span className="font-semibold">Junior Cycle</span>, or{" "}
-          <span className="font-semibold">Primary</span> to see details and next steps.
-        </p>
-
-        {/* Card grid */}
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+      {/* ── CARDS ── */}
+      <section className="container py-16">
+        <div className="grid gap-6 sm:grid-cols-2 max-w-3xl">
           {/* Leaving Certificate */}
-          <article className="group h-full flex flex-col rounded-2xl bg-white/90 backdrop-blur-md p-6 text-left shadow-lg ring-1 ring-black/10 hover:shadow-xl transition">
-            <header className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-blue-700">Leaving Certificate</h2>
-              <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs text-blue-700">HL / OL</span>
-            </header>
-            <p className="mt-3 text-slate-700 text-sm">
+          <div className="card flex flex-col">
+            <div className="flex items-start justify-between gap-2 mb-4">
+              <h2 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Leaving Certificate
+              </h2>
+              <span
+                className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                style={{ backgroundColor: "var(--amber-lite)", color: "var(--amber)" }}
+              >
+                HL &amp; OL
+              </span>
+            </div>
+            <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
               French, Spanish, Biology, Maths, and History taught to SEC marking-scheme standards.
             </p>
-            <ul className="mt-4 list-disc pl-5 text-slate-700 text-sm space-y-2">
-              <li><span className="font-medium">Exam Strategy:</span> Timing Plans, Structured Answers, Keywords.</li>
-              <li><span className="font-medium">Languages:</span> Oral & Aural Preparation, High-Yield Grammar, Writing Frames.</li>
-              <li><span className="font-medium">Past Papers:</span> Weekly Practice With Targeted Feedback.</li>
+            <ul className="space-y-2 text-sm flex-1" style={{ color: "var(--ink)" }}>
+              <li className="flex gap-2"><span style={{ color: "var(--amber)" }}>→</span><span><strong>Exam Strategy:</strong> Timing plans, structured answers, key terms</span></li>
+              <li className="flex gap-2"><span style={{ color: "var(--amber)" }}>→</span><span><strong>Languages:</strong> Oral &amp; aural prep, high-yield grammar</span></li>
+              <li className="flex gap-2"><span style={{ color: "var(--amber)" }}>→</span><span><strong>Past Papers:</strong> Weekly practice with targeted feedback</span></li>
             </ul>
-            <div className="mt-auto pt-5 flex gap-3">
-              <Link href="/subjects/lc" className="inline-flex h-11 items-center justify-center rounded-xl border border-blue-300 px-4 text-blue-700 hover:bg-blue-50 transition">Learn more</Link>
-              <Link href="/contact" className="inline-flex h-11 items-center justify-center rounded-xl bg-blue-600 px-4 text-white hover:bg-blue-700 transition">Book now</Link>
+            <div className="mt-6 flex gap-3">
+              <Link href="/subjects/lc" className="btn btn-outline text-sm px-4 py-2">Learn more</Link>
+              <Link href="/contact" className="btn btn-primary text-sm px-4 py-2">Book now</Link>
             </div>
-          </article>
+          </div>
 
           {/* Junior Cycle */}
-          <article className="group h-full flex flex-col rounded-2xl bg-white/90 backdrop-blur-md p-6 text-left shadow-lg ring-1 ring-black/10 hover:shadow-xl transition">
-            <header className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-blue-700">Junior Cycle</h2>
-              <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs text-blue-700">Maths • Science • French • Spanish</span>
-            </header>
-            <p className="mt-3 text-slate-700 text-sm">
+          <div className="card flex flex-col">
+            <div className="flex items-start justify-between gap-2 mb-4">
+              <h2 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Junior Cycle
+              </h2>
+              <span
+                className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                style={{ backgroundColor: "var(--amber-lite)", color: "var(--amber)" }}
+              >
+                Maths · Science · Languages
+              </span>
+            </div>
+            <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
               Build solid fundamentals and exam technique for CBAs and the final exam.
             </p>
-            <ul className="mt-4 list-disc pl-5 text-slate-700 text-sm space-y-2">
-              <li><span className="font-medium">Core Skills:</span> Methods For Common Problem Types; Neat Layout.</li>
-              <li><span className="font-medium">CBA Support:</span> Guidance, Reflection Prompts, Exemplars.</li>
-              <li><span className="font-medium">Languages:</span> Practical Speaking Frames; Listening Strategies.</li>
-              <li><span className="font-medium">Study Habits:</span> Notes, Checklists, Short Regular Practice.</li>
+            <ul className="space-y-2 text-sm flex-1" style={{ color: "var(--ink)" }}>
+              <li className="flex gap-2"><span style={{ color: "var(--amber)" }}>→</span><span><strong>Core Skills:</strong> Methods for common problem types</span></li>
+              <li className="flex gap-2"><span style={{ color: "var(--amber)" }}>→</span><span><strong>CBA Support:</strong> Guidance, reflection prompts &amp; exemplars</span></li>
+              <li className="flex gap-2"><span style={{ color: "var(--amber)" }}>→</span><span><strong>Languages:</strong> Speaking frames &amp; listening strategies</span></li>
             </ul>
-            <div className="mt-auto pt-5 flex gap-3">
-              <Link href="/subjects/jc" className="inline-flex h-11 items-center justify-center rounded-xl border border-blue-300 px-4 text-blue-700 hover:bg-blue-50 transition">Learn more</Link>
-              <Link href="/contact" className="inline-flex h-11 items-center justify-center rounded-xl bg-blue-600 px-4 text-white hover:bg-blue-700 transition">Book now</Link>
+            <div className="mt-6 flex gap-3">
+              <Link href="/subjects/jc" className="btn btn-outline text-sm px-4 py-2">Learn more</Link>
+              <Link href="/contact" className="btn btn-primary text-sm px-4 py-2">Book now</Link>
             </div>
-          </article>
-
-          {/* Primary */}
-          <article className="group h-full flex flex-col rounded-2xl bg-white/90 backdrop-blur-md p-6 text-left shadow-lg ring-1 ring-black/10 hover:shadow-xl transition">
-            <header className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-blue-700">Primary</h2>
-              <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs text-blue-700">Literacy • Numeracy</span>
-            </header>
-            <p className="mt-3 text-slate-700 text-sm">
-              Calm, confidence-building sessions that strengthen core skills and routines.
-            </p>
-            <ul className="mt-4 list-disc pl-5 text-slate-700 text-sm space-y-2">
-              <li><span className="font-medium">Literacy:</span> Phonics, Fluency, Comprehension, Writing.</li>
-              <li><span className="font-medium">Numeracy:</span> Number Sense, Strategies For Word Problems.</li>
-              <li><span className="font-medium">Routine:</span> Simple Practice Tasks; Focus & Organisation.</li>
-              <li><span className="font-medium">Parent Updates:</span> Brief Notes After Sessions; Clear Next Steps.</li>
-            </ul>
-            <div className="mt-auto pt-5 flex gap-3">
-              <Link href="/subjects/primary" className="inline-flex h-11 items-center justify-center rounded-xl border border-blue-300 px-4 text-blue-700 hover:bg-blue-50 transition">Learn more</Link>
-              <Link href="/contact" className="inline-flex h-11 items-center justify-center rounded-xl bg-blue-600 px-4 text-white hover:bg-blue-700 transition">Book now</Link>
-            </div>
-          </article>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ── FREE AI TOOL BANNER ── */}
+      <section style={{ backgroundColor: "var(--cream-alt)" }}>
+        <div className="container py-14">
+          <div className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <p className="label-section mb-2">Included free for all students</p>
+              <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Access to StudyWith — my free AI study tool
+              </h3>
+              <p className="mt-2 text-sm max-w-lg" style={{ color: "var(--ink-muted)" }}>
+                Every student I work with gets free access to StudyWith, an AI tutor I built myself.
+                It asks you questions instead of giving answers — so you actually understand the material.
+              </p>
+            </div>
+            <a
+              href="https://studywith-phi.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline shrink-0 text-sm"
+            >
+              Try StudyWith →
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

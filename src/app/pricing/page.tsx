@@ -8,7 +8,7 @@ export const metadata = {
 const plans = [
   {
     name: "Single Session",
-    price: "€35",
+    price: "€40",
     per: "per 60 mins",
     features: ["One-off session", "Homework or exam focus", "Online or Dublin"],
     cta: "Book one session",
@@ -16,15 +16,15 @@ const plans = [
   {
     name: "5-Pack",
     highlight: true,
-    price: "€160",
-    per: "~€32 / session",
+    price: "€185",
+    per: "~€37 / session",
     features: ["Best for short targets", "Flexible scheduling", "Progress notes each week"],
     cta: "Get 5 sessions",
   },
   {
     name: "10-Pack",
-    price: "€300",
-    per: "~€30 / session",
+    price: "€350",
+    per: "~€35 / session",
     features: ["Best value", "Longer-term plan", "Free study plan template"],
     cta: "Get 10 sessions",
   },
@@ -52,19 +52,12 @@ export default function Page() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className="card flex flex-col"
-              style={
-                p.highlight
-                  ? {
-                      border: "2px solid var(--amber)",
-                      position: "relative",
-                    }
-                  : {}
-              }
+              className="card flex flex-col relative"
+              style={p.highlight ? { border: "2px solid var(--amber)" } : {}}
             >
               {p.highlight && (
                 <div
-                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold"
+                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold whitespace-nowrap"
                   style={{ backgroundColor: "var(--amber)", color: "white" }}
                 >
                   Most popular
@@ -73,10 +66,7 @@ export default function Page() {
 
               <p className="label-section mb-3">{p.name}</p>
               <div className="flex items-end gap-2 mb-5">
-                <span
-                  className="font-display text-4xl font-bold"
-                  style={{ color: "var(--ink)" }}
-                >
+                <span className="font-display text-4xl font-bold" style={{ color: "var(--ink)" }}>
                   {p.price}
                 </span>
                 <span className="text-sm pb-1" style={{ color: "var(--ink-muted)" }}>
@@ -91,6 +81,10 @@ export default function Page() {
                     {f}
                   </li>
                 ))}
+                <li className="flex gap-2">
+                  <span style={{ color: "var(--amber)" }}>✓</span>
+                  Free access to StudyWith AI
+                </li>
               </ul>
 
               <Link
@@ -102,6 +96,30 @@ export default function Page() {
               </Link>
             </div>
           ))}
+        </div>
+
+        {/* StudyWith note */}
+        <div
+          className="mt-8 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+          style={{ backgroundColor: "var(--amber-lite)" }}
+        >
+          <div className="flex-1">
+            <p className="font-semibold text-sm" style={{ color: "var(--ink)" }}>
+              Every plan includes free access to StudyWith
+            </p>
+            <p className="text-sm mt-0.5" style={{ color: "var(--ink-muted)" }}>
+              StudyWith is an AI study tool I built myself. It guides students through problems using
+              questions rather than answers, so you understand the material, not just memorise it.
+            </p>
+          </div>
+          <a
+            href="https://studywith-phi.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline shrink-0 text-sm"
+          >
+            Try it free →
+          </a>
         </div>
       </section>
 
@@ -117,26 +135,13 @@ export default function Page() {
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              {
-                q: "Where do sessions happen?",
-                a: "Online (Zoom/Meet) or in-person in Dublin.",
-              },
-              {
-                q: "What's the cancellation policy?",
-                a: "24-hour notice for rescheduling or cancellation.",
-              },
-              {
-                q: "Do you set homework?",
-                a: "Short, targeted practice if helpful — always optional.",
-              },
+              { q: "Where do sessions happen?", a: "Online (Zoom/Meet) or in-person in Dublin." },
+              { q: "What's the cancellation policy?", a: "24-hour notice for rescheduling or cancellation." },
+              { q: "Do you set homework?", a: "Short, targeted practice if helpful. Always optional." },
             ].map(({ q, a }) => (
               <div key={q} className="card">
-                <p className="font-semibold text-sm mb-2" style={{ color: "var(--ink)" }}>
-                  {q}
-                </p>
-                <p className="text-sm" style={{ color: "var(--ink-muted)" }}>
-                  {a}
-                </p>
+                <p className="font-semibold text-sm mb-2" style={{ color: "var(--ink)" }}>{q}</p>
+                <p className="text-sm" style={{ color: "var(--ink-muted)" }}>{a}</p>
               </div>
             ))}
           </div>

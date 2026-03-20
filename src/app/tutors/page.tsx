@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "About | Matthew's Grinds",
   description:
-    "Personalised grinds for Leaving Certificate, Junior Cycle & Primary. By a Trinity College Dublin student — clear explanations, structured practice, exam confidence.",
+    "Personalised grinds for Leaving Certificate and Junior Cycle. By a Trinity College Dublin student — clear explanations, structured practice, exam confidence.",
 };
 
 export default function AboutPage() {
@@ -13,27 +13,18 @@ export default function AboutPage() {
       <section style={{ borderBottom: "1px solid rgba(26,26,26,0.08)" }}>
         <div className="container py-16 md:py-20">
           <p className="label-section mb-4">Your tutor</p>
-          <h1
-            className="font-display text-4xl md:text-5xl font-bold"
-            style={{ color: "var(--ink)" }}
-          >
+          <h1 className="font-display text-4xl md:text-5xl font-bold" style={{ color: "var(--ink)" }}>
             About Matthew
           </h1>
           <p className="mt-4 max-w-2xl text-lg" style={{ color: "var(--ink-muted)" }}>
             I&apos;m a Trinity College Dublin student (Business &amp; Computer Science, Joint Honours)
-            offering personalised grinds for Leaving Certificate, Junior Cycle, and Primary students —
+            offering personalised grinds for Leaving Certificate and Junior Cycle students,
             online or in person across Dublin.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn btn-primary">
-              Contact Me
-            </Link>
-            <Link href="/pricing" className="btn btn-outline">
-              View Prices
-            </Link>
-            <Link href="/subjects" className="btn btn-outline">
-              Subjects
-            </Link>
+            <Link href="/contact" className="btn btn-primary">Contact Me</Link>
+            <Link href="/pricing" className="btn btn-outline">View Prices</Link>
+            <Link href="/subjects" className="btn btn-outline">Subjects</Link>
           </div>
         </div>
       </section>
@@ -44,7 +35,7 @@ export default function AboutPage() {
           {[
             { k: "Approach", v: "Clarity · Practice · Feedback" },
             { k: "Format", v: "Online or in person (Dublin)" },
-            { k: "Levels", v: "Leaving Cert · Junior Cycle · Primary" },
+            { k: "Levels", v: "Leaving Cert · Junior Cycle" },
           ].map((i) => (
             <div key={i.k} className="card">
               <p className="label-section mb-2">{i.k}</p>
@@ -53,6 +44,36 @@ export default function AboutPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── STUDYWITH ── */}
+      <section style={{ backgroundColor: "var(--ink)" }}>
+        <div className="container py-14">
+          <div className="max-w-2xl">
+            <p className="label-section mb-4" style={{ color: "var(--amber)" }}>Built by me, free for my students</p>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4 text-white">
+              I built an AI study tool called StudyWith
+            </h2>
+            <p className="text-base mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>
+              StudyWith is an AI tutor that guides you through assignments using the Socratic method.
+              Instead of giving you answers, it asks you questions so you actually understand the
+              material. Every student I work with gets free access.
+            </p>
+            <p className="text-base mb-7" style={{ color: "rgba(255,255,255,0.7)" }}>
+              It&apos;s particularly useful between sessions — you can paste in any problem and work
+              through it step by step, building real understanding rather than copying answers.
+            </p>
+            <a
+              href="https://studywith-phi.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ backgroundColor: "var(--amber)", color: "var(--ink)", fontWeight: 600 }}
+            >
+              Try StudyWith free →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -65,33 +86,20 @@ export default function AboutPage() {
               What I do differently
             </h2>
             <p className="text-base mb-8" style={{ color: "var(--ink-muted)" }}>
-              My teaching style is calm and structured. I simplify each idea, practise exam techniques,
-              and build momentum with small weekly wins.
+              My teaching style is calm and structured. I simplify each idea, practise exam
+              techniques, and build momentum with small weekly wins.
             </p>
             <ul className="space-y-5">
               {[
-                {
-                  title: "Clarity before content",
-                  desc: "Short explanations, simple methods, and the why behind each topic.",
-                },
-                {
-                  title: "Exam-first practice",
-                  desc: "Focus on marking schemes, time management, and repeatable steps.",
-                },
-                {
-                  title: "Steady accountability",
-                  desc: "Weekly checklists so progress compounds without cramming.",
-                },
+                { title: "Clarity before content", desc: "Short explanations, simple methods, and the why behind each topic." },
+                { title: "Exam-first practice", desc: "Focus on marking schemes, time management, and repeatable steps." },
+                { title: "Steady accountability", desc: "Weekly checklists so progress compounds without cramming." },
               ].map((item) => (
                 <li key={item.title} className="flex gap-3">
                   <span className="mt-0.5 text-lg" style={{ color: "var(--amber)" }}>→</span>
                   <div>
-                    <strong className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
-                      {item.title}:
-                    </strong>{" "}
-                    <span className="text-sm" style={{ color: "var(--ink-muted)" }}>
-                      {item.desc}
-                    </span>
+                    <strong className="text-sm font-semibold" style={{ color: "var(--ink)" }}>{item.title}:</strong>{" "}
+                    <span className="text-sm" style={{ color: "var(--ink-muted)" }}>{item.desc}</span>
                   </div>
                 </li>
               ))}
@@ -103,83 +111,41 @@ export default function AboutPage() {
       {/* ── APPROACH ── */}
       <section className="container py-16">
         <p className="label-section mb-4">How it works</p>
-        <h2
-          className="font-display text-2xl sm:text-3xl font-bold mb-10"
-          style={{ color: "var(--ink)" }}
-        >
+        <h2 className="font-display text-2xl sm:text-3xl font-bold mb-10" style={{ color: "var(--ink)" }}>
           My approach
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            {
-              t: "1 — Diagnostic",
-              d: "We map strengths, gaps, and priorities. You get a simple plan with quick wins.",
-            },
-            {
-              t: "2 — Learn by doing",
-              d: "Clear explanation → worked example → timed question, just like on the paper.",
-            },
-            {
-              t: "3 — Feedback loop",
-              d: "Targeted feedback and weekly tasks keep progress consistent and stress low.",
-            },
+            { t: "1 — Diagnostic", d: "We map strengths, gaps, and priorities. You get a simple plan with quick wins." },
+            { t: "2 — Learn by doing", d: "Clear explanation, worked example, timed question. Just like on the actual paper." },
+            { t: "3 — Feedback loop", d: "Targeted feedback and weekly tasks keep progress consistent and stress low." },
           ].map((c) => (
             <div key={c.t} className="card">
-              <h3
-                className="font-display text-lg font-semibold mb-3"
-                style={{ color: "var(--amber)" }}
-              >
+              <h3 className="font-display text-lg font-semibold mb-3" style={{ color: "var(--amber)" }}>
                 {c.t}
               </h3>
-              <p className="text-sm" style={{ color: "var(--ink-muted)" }}>
-                {c.d}
-              </p>
+              <p className="text-sm" style={{ color: "var(--ink-muted)" }}>{c.d}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── SUBJECTS TEASER ── */}
+      {/* ── CTA ── */}
       <section style={{ backgroundColor: "var(--cream-alt)" }}>
         <div className="container py-14">
-          <div
-            className="card flex flex-col md:flex-row md:items-center md:justify-between gap-6"
-          >
+          <div className="card flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <p className="label-section mb-2">Subjects &amp; levels</p>
-              <h2 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
-                LC · JC · Primary
-              </h2>
-              <p className="mt-2 text-sm max-w-lg" style={{ color: "var(--ink-muted)" }}>
-                I support LC, JC, and Primary across core subjects. We adapt content to your syllabus,
-                level, and current ability. If your exact topic isn&apos;t listed, just ask.
+              <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
+                Ready to make consistent progress?
+              </h3>
+              <p className="mt-1 text-sm" style={{ color: "var(--ink-muted)" }}>
+                Book a quick chat and let&apos;s build a study plan that works for you.
               </p>
             </div>
-            <Link href="/subjects" className="btn btn-outline shrink-0">
-              Explore Subjects
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="container py-16">
-        <div className="card flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <h3 className="font-display text-xl font-bold" style={{ color: "var(--ink)" }}>
-              Ready to make consistent progress?
-            </h3>
-            <p className="mt-1 text-sm" style={{ color: "var(--ink-muted)" }}>
-              Book a quick chat and let&apos;s build a study plan that works for you.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="btn btn-primary">
-              Contact Me
-            </Link>
-            <Link href="/pricing" className="btn btn-outline">
-              View Prices
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact" className="btn btn-primary">Contact Me</Link>
+              <Link href="/pricing" className="btn btn-outline">View Prices</Link>
+            </div>
           </div>
         </div>
       </section>
