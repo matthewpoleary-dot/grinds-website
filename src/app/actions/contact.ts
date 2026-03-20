@@ -1,8 +1,11 @@
 "use server";
 
-import { Resend } from "resend";
+import { createClient } from "@supabase/supabase-js";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_KEY!
+);
 
 export type ContactState = {
   success: boolean;
@@ -22,18 +25,14 @@ export async function sendContactEmail(
     return { success: false, error: "Please fill in all required fields." };
   }
 
-  try {
-    await resend.emails.send({
-      from: "Matthew's Grinds <onboarding@resend.dev>",
-      to: "matthewsgrinds@gmail.com",
-      replyTo: email,
-      subject: `New enquiry from ${name}${level ? ` — ${level}` : ""}`,
-      text: `Name: ${name}\nEmail: ${email}\nLevel: ${level || "Not specified"}\n\nMessage:\n${message}`,
-    });
+  const { error } = await supabase
+    .from("contact_submissions")
+    .insert({ name, email, level, message });
 
-    return { success: true };
-  } catch (err) {
-    console.error("Resend error:", err);
+  if (error) {
+    console.error("Supabase error:", error);
     return { success: false, error: "Failed to send. Please try WhatsApp or email directly." };
   }
+
+  return { success: true };
 }
